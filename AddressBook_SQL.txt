@@ -1,27 +1,30 @@
-Enter password: **************
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 16
-Server version: 8.0.29 MySQL Community Server - GPL
+mysql> CREATE TABLE addressbook_table
+    -> (
+    -> firstName varchar(50) NOT NULL,
+    -> lastName varchar(50) NOT NULL,
+    -> address varchar(100),
+    -> city varchar(20),
+    -> state varchar(50),
+    -> zip varchar(10),
+    -> phone_number varchar(15),
+    -> email_address varchar(50)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
 
-Copyright (c) 2000, 2022, Oracle and/or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> CREATE DATABASE addressbook_DB;
-Query OK, 1 row affected (0.02 sec)
-
-mysql> USE addressbook_DB;
-Database changed
-mysql> SELECT DATABASE();
-+----------------+
-| DATABASE()     |
-+----------------+
-| addressbook_db |
-+----------------+
-1 row in set (0.00 sec)
+mysql> Describe addressbook_table
+    -> ;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(50)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  |     | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
 
 mysql>

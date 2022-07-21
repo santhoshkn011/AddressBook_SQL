@@ -1,15 +1,26 @@
-mysql> INSERT INTO addressbook_table ( firstName, lastName, address, city, state, zip, phone_number, email_address) VALUES
-    -> ('Santhosh', 'Kumar', 'Amberpet', 'Hyderabad', 'Telangana', '500013', '0123456789', 'santhosh@gmail.com'),
-    -> ('Kumar', 'Nayak', 'Amberpet', 'Hyderabad', 'Telangana', '500013', '0123456789', 'kumar@gmail.com');
-Query OK, 2 rows affected (0.01 sec)
-Records: 2  Duplicates: 0  Warnings: 0
+mysql> update addressbook_table set zip = 789456 where firstName = 'Kumar';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  SELECT * FROM addressbook_table;
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 0123456789   | santhosh@gmail.com |
+| Kumar     | Nayak    | Amberpet | Hyderabad | Telangana | 789456 | 0123456789   | kumar@gmail.com    |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> update addressbook_table set phone_number = 9888888888 where firstName = 'Santhosh';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
 mysql> SELECT * FROM addressbook_table;
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
 | firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
-| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 0123456789   | santhosh@gmail.com |
-| Kumar     | Nayak    | Amberpet | Hyderabad | Telangana | 500013 | 0123456789   | kumar@gmail.com    |
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com |
+| Kumar     | Nayak    | Amberpet | Hyderabad | Telangana | 789456 | 0123456789   | kumar@gmail.com    |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
 2 rows in set (0.00 sec)
 

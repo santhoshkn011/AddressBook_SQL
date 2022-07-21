@@ -1,13 +1,45 @@
-mysql> DELETE FROM addressbook_table
-    -> WHERE
-    -> firstName='Kumar'
-    -> ;
-Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO addressbook_table ( firstName, lastName, address, city, state, zip, phone_number, email_address) VALUES
+    -> ('Aravind', 'Reddy', 'Amberpet', 'Banglore', 'Karnataka', '500013', '0123456789', 'arav@gmail.com'),
+    -> ('Namitha', 'Nayak', 'Amberpet', 'Hyderabad', 'Telangana', '500787', '9999999999', 'namitha@gmail.com');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
 
 mysql> SELECT * FROM addressbook_table;
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
 | firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
 | Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com |
+| Aravind   | Reddy    | Amberpet | Banglore  | Karnataka | 500013 | 0123456789   | arav@gmail.com     |
+| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
-1 row in set (0.00 sec)
+3 rows in set (0.00 sec)
+
+mysql> SELECT firstName FROM addressbook_table WHERE city = 'Hyderabad' or state = 'Telangana';
++-----------+
+| firstName |
++-----------+
+| Santhosh  |
+| Namitha   |
++-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT firstName, city, State FROM addressbook_table WHERE city = 'Hyderabad' or state = 'Telangana';
++-----------+-----------+-----------+
+| firstName | city      | State     |
++-----------+-----------+-----------+
+| Santhosh  | Hyderabad | Telangana |
+| Namitha   | Hyderabad | Telangana |
++-----------+-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM addressbook_table WHERE city = 'Hyderabad' or state = 'Telangana';
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com |
+| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql>
+

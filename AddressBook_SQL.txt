@@ -1,30 +1,16 @@
-mysql> CREATE TABLE addressbook_table
-    -> (
-    -> firstName varchar(50) NOT NULL,
-    -> lastName varchar(50) NOT NULL,
-    -> address varchar(100),
-    -> city varchar(20),
-    -> state varchar(50),
-    -> zip varchar(10),
-    -> phone_number varchar(15),
-    -> email_address varchar(50)
-    -> );
-Query OK, 0 rows affected (0.04 sec)
+mysql> INSERT INTO addressbook_table ( firstName, lastName, address, city, state, zip, phone_number, email_address) VALUES
+    -> ('Santhosh', 'Kumar', 'Amberpet', 'Hyderabad', 'Telangana', '500013', '0123456789', 'santhosh@gmail.com'),
+    -> ('Kumar', 'Nayak', 'Amberpet', 'Hyderabad', 'Telangana', '500013', '0123456789', 'kumar@gmail.com');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
 
-mysql> Describe addressbook_table
-    -> ;
-+---------------+--------------+------+-----+---------+-------+
-| Field         | Type         | Null | Key | Default | Extra |
-+---------------+--------------+------+-----+---------+-------+
-| firstName     | varchar(50)  | NO   |     | NULL    |       |
-| lastName      | varchar(50)  | NO   |     | NULL    |       |
-| address       | varchar(100) | YES  |     | NULL    |       |
-| city          | varchar(20)  | YES  |     | NULL    |       |
-| state         | varchar(50)  | YES  |     | NULL    |       |
-| zip           | varchar(10)  | YES  |     | NULL    |       |
-| phone_number  | varchar(15)  | YES  |     | NULL    |       |
-| email_address | varchar(50)  | YES  |     | NULL    |       |
-+---------------+--------------+------+-----+---------+-------+
-8 rows in set (0.01 sec)
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 0123456789   | santhosh@gmail.com |
+| Kumar     | Nayak    | Amberpet | Hyderabad | Telangana | 500013 | 0123456789   | kumar@gmail.com    |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
+2 rows in set (0.00 sec)
 
 mysql>

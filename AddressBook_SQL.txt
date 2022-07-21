@@ -11,5 +11,3 @@ mysql> SELECT * FROM addressbook_table;
 | Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
 1 row in set (0.00 sec)
-
-mysql>

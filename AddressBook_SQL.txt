@@ -1,38 +1,19 @@
-mysql> SELECT * FROM addressbook_table;
+mysql> SHOW TABLES;
++--------------------------+
+| Tables_in_addressbook_db |
++--------------------------+
+| addressbook_table        |
++--------------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from addressbook_table order by firstName;
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
 | firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
-| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com |
 | Aravind   | Reddy    | Amberpet | Banglore  | Karnataka | 500013 | 0123456789   | arav@gmail.com     |
 | Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  |
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com |
 +-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+
-3 rows in set (0.00 sec)
-
-mysql> SELECT city, COUNT(firstName) FROM addressbook_table GROUP BY city ;
-+-----------+------------------+
-| city      | COUNT(firstName) |
-+-----------+------------------+
-| Hyderabad |                2 |
-| Banglore  |                1 |
-+-----------+------------------+
-2 rows in set (0.01 sec)
-
-mysql> SELECT state, COUNT(firstName) FROM addressbook_table GROUP BY state ;
-+-----------+------------------+
-| state     | COUNT(firstName) |
-+-----------+------------------+
-| Telangana |                2 |
-| Karnataka |                1 |
-+-----------+------------------+
-2 rows in set (0.00 sec)
-
-mysql> SELECT state, city, COUNT(firstName) FROM addressbook_table GROUP BY state, city ;
-+-----------+-----------+------------------+
-| state     | city      | COUNT(firstName) |
-+-----------+-----------+------------------+
-| Telangana | Hyderabad |                2 |
-| Karnataka | Banglore  |                1 |
-+-----------+-----------+------------------+
-2 rows in set (0.00 sec)
+3 rows in set (0.02 sec)
 
 mysql>

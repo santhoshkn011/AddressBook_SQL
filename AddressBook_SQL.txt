@@ -1,71 +1,8 @@
-mysql> alter table addressbook_table add column type varchar(50);
-Query OK, 0 rows affected (0.03 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-mysql> describe addressbook_table
-    -> ;
-+---------------+--------------+------+-----+---------+-------+
-| Field         | Type         | Null | Key | Default | Extra |
-+---------------+--------------+------+-----+---------+-------+
-| firstName     | varchar(50)  | NO   |     | NULL    |       |
-| lastName      | varchar(50)  | NO   |     | NULL    |       |
-| address       | varchar(100) | YES  |     | NULL    |       |
-| city          | varchar(20)  | YES  |     | NULL    |       |
-| state         | varchar(50)  | YES  |     | NULL    |       |
-| zip           | varchar(10)  | YES  |     | NULL    |       |
-| phone_number  | varchar(15)  | YES  |     | NULL    |       |
-| email_address | varchar(50)  | YES  |     | NULL    |       |
-| type          | varchar(50)  | YES  |     | NULL    |       |
-+---------------+--------------+------+-----+---------+-------+
-9 rows in set (0.02 sec)
-
-mysql> SELECT * FROM addressbook_table;
-+-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+------+
-| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      | type |
-+-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+------+
-| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com | NULL |
-| Aravind   | Reddy    | Amberpet | Banglore  | Karnataka | 500013 | 0123456789   | arav@gmail.com     | NULL |
-| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  | NULL |
-+-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+------+
-3 rows in set (0.00 sec)
-
-mysql>  update addressbook_table set type='family' where firstName='Namitha';
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql>  update addressbook_table set type='friend' where firstName='Aravind';
-Query OK, 1 row affected (0.02 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update addressbook_table set type='friend' where firstName='Santhosh';
-Query OK, 1 row affected (0.02 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> SELECT * FROM addressbook_table;
-+-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+--------+
-| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      | type   |
-+-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+--------+
-| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com | friend |
-| Aravind   | Reddy    | Amberpet | Banglore  | Karnataka | 500013 | 0123456789   | arav@gmail.com     | friend |
-| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  | family |
-+-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+--------+
-3 rows in set (0.00 sec)
-
-mysql> SELECT firstName FROM addressbook_table WHERE type = 'friend';
-+-----------+
-| firstName |
-+-----------+
-| Santhosh  |
-| Aravind   |
-+-----------+
-2 rows in set (0.00 sec)
-
-mysql>  SELECT firstName FROM addressbook_table WHERE type = 'family';
-+-----------+
-| firstName |
-+-----------+
-| Namitha   |
-+-----------+
-1 row in set (0.00 sec)
-
-mysql>
+mysql> SELECT type, COUNT(type) FROM addressbook_table GROUP BY type ;
++--------+-------------+
+| type   | COUNT(type) |
++--------+-------------+
+| friend |           2 |
+| family |           1 |
++--------+-------------+
+2 rows in set (0.01 sec)

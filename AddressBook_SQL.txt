@@ -1,8 +1,27 @@
-mysql> SELECT type, COUNT(type) FROM addressbook_table GROUP BY type ;
-+--------+-------------+
-| type   | COUNT(type) |
-+--------+-------------+
-| friend |           2 |
-| family |           1 |
-+--------+-------------+
-2 rows in set (0.01 sec)
+mysql> SELECT * FROM addressbook_table
+    -> ;
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+--------+
+| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      | type   |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+--------+
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com | friend |
+| Aravind   | Reddy    | Amberpet | Banglore  | Karnataka | 500013 | 0123456789   | arav@gmail.com     | friend |
+| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  | family |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO addressbook_table (firstName, lastName, address, city, state, zip, phone_number, email_address, type) VALUES
+    -> ('Namitha', 'Nayak', 'Amberpet', 'Hyderabad', 'Telangana', '587954', '777777777','namitha@gmail.com','friends');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+---------+
+| firstName | lastName | address  | city      | state     | zip    | phone_number | email_address      | type    |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+---------+
+| Santhosh  | Kumar    | Amberpet | Hyderabad | Telangana | 500013 | 9888888888   | santhosh@gmail.com | friend  |
+| Aravind   | Reddy    | Amberpet | Banglore  | Karnataka | 500013 | 0123456789   | arav@gmail.com     | friend  |
+| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 500787 | 9999999999   | namitha@gmail.com  | family  |
+| Namitha   | Nayak    | Amberpet | Hyderabad | Telangana | 587954 | 777777777    | namitha@gmail.com  | friends |
++-----------+----------+----------+-----------+-----------+--------+--------------+--------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql>
